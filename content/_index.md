@@ -6,14 +6,11 @@ date: 2022-10-24
 type: landing
 
 sections:
-  - block: markdown
+  - block: hero-identity
     id: hero
     content:
-      title: ''
-      text: |-
-        # Dharamraj Yadav
-
-        PhD Researcher in Computational Mechanics at University de Technologie de Compiegene (UTC) — Multiphysics & Multiscale Modeling of Fatigue Failure
+      username: me
+      tagline: 'PhD Researcher in Computational Mechanics at University de Technologie de Compiegene (UTC) — Multiphysics & Multiscale Modeling of Fatigue Failure'
     design:
       css_class: 'min-h-[80vh] flex items-end justify-center pb-16 md:pb-24 px-6 md:px-14'
       background:
