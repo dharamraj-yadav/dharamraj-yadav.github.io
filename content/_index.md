@@ -36,6 +36,7 @@ sections:
       spacing:
         padding: ['6rem', '1.5rem', '1rem', '1.5rem']
   - block: resume-biography-3
+    id: home-resume-bio
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: me
@@ -62,6 +63,21 @@ sections:
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
+  - block: markdown
+    id: home-education
+    content:
+      title: '🎓 Education'
+      subtitle: ''
+      text: |-
+        **PhD, Computational Mechanics** — Université de Technologie de Compiègne (UTC), France · 2026 – Present
+        Thesis: *Multi-physics/multi-scale modelling of fatigue failure*
+
+        **MSc, Mechanical Engineering** — [Institution Name] · 2022 – 2024 · Grade: 8.7/10
+        Thesis: [Thesis title]
+
+        **BSc, Mechanical Engineering** — [Institution Name] · 2018 – 2022 · Grade: 8.2/10
+    design:
+      columns: '1'
   - block: resume-skills
     content:
       username: me
