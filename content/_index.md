@@ -33,9 +33,15 @@ sections:
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
+  - block: resume-skills
+    content:
+      username: me
+      title: 'Skills'
+    design:
+      columns: '2'
   - block: markdown
     content:
-      title: '📚 My Research'
+      title: '📚 Research'
       subtitle: ''
       text: |-
         Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
@@ -46,7 +52,7 @@ sections:
     design:
       columns: '1'
   - block: collection
-    id: papers
+    id: publications
     content:
       title: Featured Publications
       filters:
