@@ -6,49 +6,37 @@ date: 2022-10-24
 type: landing
 
 sections:
-  - block: resume-biography-3
-    content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
-      username: me
-      text: ''
-      # Show a call-to-action button under your biography? (optional)
-      button:
-        text: Download CV
-        url: uploads/resume.pdf
-      headings:
-        about: ''
-        education: ''
-        interests: ''
-    design:
-      # Use the new Gradient Mesh which automatically adapts to the selected theme colors
-      background:
-        gradient_mesh:
-          enable: false
-
-      # Name heading sizing to accommodate long or short names
-      name:
-        size: md # Options: xs, sm, md, lg (default), xl
-
-      # Avatar customization
-      avatar:
-        size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
-        shape: circle # Options: circle (default), square, rounded
-  - block: resume-skills
-    content:
-      username: me
-      title: 'Skills'
-    design:
-      columns: '2'
   - block: markdown
     content:
-      title: '📚 Research'
+      title: ''
+      text: |-
+        # Dharamraj Yadav
+
+        PhD Researcher in Computational Mechanics — Multiphysics & Multiscale Modeling of Fatigue Failure
+    design:
+      css_class: 'min-h-[70vh] flex items-center justify-center text-center'
+      background:
+        image:
+          filename: cover.svg
+          filters:
+            brightness: 0.6
+        text_color_light: true
+  - block: markdown
+    content:
+      title: ''
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+        Research on multi-physics and multi-scale modeling of fatigue failure, combining computational mechanics with data-driven methods — with a broader interest in scientific machine learning, uncertainty quantification, and computational physics.
+    design:
+      columns: '1'
+  - block: markdown
+    content:
+      title: ''
+      subtitle: ''
+      text: |-
+        Dharamraj Yadav is a PhD Researcher in Computational Mechanics. His research focuses on multi-physics and multi-scale modeling of fatigue failure.
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
-
-        Please reach out to collaborate 😃
+        [Learn more about Dharamraj →](bio/)
     design:
       columns: '1'
   - block: collection
