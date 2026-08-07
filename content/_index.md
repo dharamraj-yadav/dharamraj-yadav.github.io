@@ -25,7 +25,7 @@ sections:
   - block: markdown
     id: bio-teaser
     content:
-      title: 'About Me'
+      title: 'Bio'
       subtitle: ''
       text: |-
         ![Dharamraj Yadav](/media/me.png)
