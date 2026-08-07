@@ -22,9 +22,10 @@
 {{ $learn_more_url := "" }}
 {{ with index $content "learn_more_url" }}{{ if eq (printf "%T" .) "string" }}{{ $learn_more_url = . }}{{ end }}{{ end }}
 
-{{ $show_summary := true }}
-{{ $show_summary_raw := index $content "show_professional_summary" }}
-{{ if eq (printf "%T" $show_summary_raw) "bool" }}{{ $show_summary = $show_summary_raw }}{{ end }}
+{{ $education_text := "" }}
+{{ with index $content "education_text" }}
+  {{ if eq (printf "%T" .) "string" }}{{ $education_text = printf "%v" . | emojify | $page.RenderString }}{{ end }}
+{{ end }}
 
 <div class="max-w-6xl mx-auto px-6">
   <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
@@ -106,25 +107,25 @@
       {{ end }}
     </div>
 
-    {{/* Right column: About Me paragraph + Professional Summary */}}
+    {{/* Right column: About Me paragraph + Education */}}
     <div class="md:col-span-8">
       {{ with $about_text }}
-        <div class="prose prose-lg dark:prose-invert max-w-none mb-10">
-          {{ . }}
-          {{ with $learn_more_url }}
-            <p><a href="{{ . | relLangURL }}" class="underline">Learn more about {{ $profile.title }} →</a></p>
-          {{ end }}
+        <div class="mb-10">
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">About Me</h2>
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            {{ . }}
+            {{ with $learn_more_url }}
+              <p><a href="{{ . | relLangURL }}" class="underline">Learn more about {{ $profile.title }} →</a></p>
+            {{ end }}
+          </div>
         </div>
       {{ end }}
 
-      {{ if $show_summary }}
-        {{ with $profile.bio }}
-          {{ $bio_content := printf "%v" . | emojify | $page.RenderString }}
-          <div class="mb-8">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">Professional Summary</h2>
-            <div class="prose prose-lg dark:prose-invert max-w-none">{{ $bio_content }}</div>
-          </div>
-        {{ end }}
+      {{ with $education_text }}
+        <div class="mb-8">
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">🎓 Education</h2>
+          <div class="prose prose-lg dark:prose-invert max-w-none">{{ . }}</div>
+        </div>
       {{ end }}
 
       {{ $button_raw := index $content "button" }}
