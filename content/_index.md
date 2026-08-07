@@ -35,41 +35,33 @@ sections:
       columns: '1'
       spacing:
         padding: ['6rem', '1.5rem', '1rem', '1.5rem']
-  - block: identity-strip
+  - block: resume-biography-3
     content:
+      # Choose a user profile to display (a folder name within `content/authors/`)
       username: me
+      text: ''
+      # Show a call-to-action button under your biography? (optional)
+      button:
+        text: Download CV
+        url: uploads/resume.pdf
+      headings:
+        about: ''
+        education: ''
+        interests: ''
     design:
-      columns: '1'
-      spacing:
-        padding: ['0', '1.5rem', '1rem', '1.5rem']
-  - block: markdown
-    id: home-bio
-    content:
-      title: ''
-      subtitle: ''
-      text: |-
-        ## Education
+      # Use the new Gradient Mesh which automatically adapts to the selected theme colors
+      background:
+        gradient_mesh:
+          enable: false
 
-        **PhD, Computational Mechanics** — Université de Technologie de Compiègne (UTC), France · 2026 – Present
-        Thesis: *Multi-physics/multi-scale modelling of fatigue failure*
+      # Name heading sizing to accommodate long or short names
+      name:
+        size: md # Options: xs, sm, md, lg (default), xl
 
-        **MSc, Mechanical Engineering** — [Institution Name] · 2022 – 2024 · Grade: 8.7/10
-        Thesis: [Thesis title]
-
-        **BSc, Mechanical Engineering** — [Institution Name] · 2018 – 2022 · Grade: 8.2/10
-
-        ## Research Interests
-
-        - Multi-physics & multi-scale modeling of fatigue failure
-        - Scientific machine learning (SciML)
-        - Uncertainty quantification
-        - Computational physics
-
-        <a href="/uploads/resume.pdf" class="cv-download-btn">Download CV →</a>
-    design:
-      columns: '1'
-      spacing:
-        padding: ['0', '1.5rem', '6rem', '1.5rem']
+      # Avatar customization
+      avatar:
+        size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
+        shape: circle # Options: circle (default), square, rounded
   - block: resume-skills
     content:
       username: me
