@@ -2,54 +2,20 @@
   #bio-teaser > div {
     max-width: 68rem;
   }
-  #bio-teaser .prose {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    max-width: none;
-    text-align: left;
-  }
-  #bio-teaser .prose p:empty {
-    display: none;
-  }
-  #bio-teaser .prose figure {
-    flex-shrink: 0;
-    margin: 0;
-    width: auto;
-  }
-  #bio-teaser .prose figure > div,
-  #bio-teaser .prose figure .w-full {
-    width: auto;
-  }
-  #bio-teaser .prose figure img {
+  #bio-teaser .bio-merged-photo {
     display: block;
-    width: 180px;
-    height: 180px;
+    width: 260px;
+    height: 170px;
     object-fit: cover;
     object-position: top center;
     border-radius: 0.75rem;
-    margin: 0;
+    margin: 0 auto;
   }
-  #bio-teaser .prose > p:last-of-type {
-    margin: 0;
-    flex: 1;
-  }
-  #bio-teaser .prose a {
+  #bio-teaser a {
     color: #0969da;
     text-decoration: underline;
   }
-  #bio-teaser .prose a:hover {
+  #bio-teaser a:hover {
     color: #0550ae;
-  }
-  @media (max-width: 640px) {
-    #bio-teaser .prose {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    #bio-teaser .prose figure img {
-      width: 100%;
-      max-width: 320px;
-    }
   }
 </style>
