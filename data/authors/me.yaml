@@ -83,22 +83,16 @@ experience:
       Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
 
 skills:
-  - name: Technical Skills
+  - name: Simulation & Modeling
+    items:
+      - label: Finite Element Analysis (FEAP)
+      - label: Multi-physics & Multi-scale Modeling
+      - label: Fortran
+  - name: Computing & Data
     items:
       - label: Python
-        level: 5
-      - label: Machine Learning
-        level: 5
-      - label: Cloud Computing
-        level: 4
-  - name: Research & Communication
-    items:
-      - label: Academic Writing
-        level: 5
-      - label: Conference Presentations
-        level: 4
-      - label: Grant Proposals
-        level: 4
+      - label: Scientific Machine Learning
+      - label: LaTeX
 
 languages:
   - name: English
