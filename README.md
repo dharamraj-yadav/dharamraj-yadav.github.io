@@ -13,3 +13,5 @@ hugo server
 ## Deployment
 
 Pushing to `main` automatically rebuilds and republishes the site via GitHub Actions (`.github/workflows/deploy.yml`).
+
+Remember: local edits only take effect after `git add`, `git commit`, and `git push` — saving a file alone does not update the live site.
