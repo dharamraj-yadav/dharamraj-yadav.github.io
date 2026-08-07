@@ -18,7 +18,7 @@ sections:
       css_class: 'min-h-[80vh] flex items-end justify-start pb-16 md:pb-24 px-6 md:px-14'
       background:
         image:
-          filename: cover.svg
+          filename: Cover Photo.jpg
           filters:
             brightness: 0.6
         text_color_light: true
@@ -36,7 +36,7 @@ sections:
       title: ''
       subtitle: ''
       text: |-
-        ![Dharamraj Yadav](/media/bio-photo.svg)
+        ![Dharamraj Yadav](/me.png)
 
         Dharamraj Yadav is a PhD Researcher in Computational Mechanics. His research focuses on multi-physics and multi-scale modeling of fatigue failure, combining computational modeling with data-driven methods. [Learn more about Dharamraj →](bio/)
     design:
