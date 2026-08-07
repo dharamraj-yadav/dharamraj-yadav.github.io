@@ -11,11 +11,11 @@ sections:
     content:
       title: ''
       text: |-
-        #    Dharamraj Yadav
+        # Dharamraj Yadav
 
-        PhD Researcher in Computational Mechanics at University de Technologie de Compiegene (UTC) — Multiphysics & Multiscale Modeling of Fatigue Failure
+        **PhD Researcher** in Computational Mechanics at **University de Technologie de Compiegene (UTC)** — Multiphysics & Multiscale Modeling of Fatigue Failure
     design:
-      css_class: 'min-h-[80vh] flex items-end justify-start pb-16 md:pb-24 px-6 md:px-14'
+      css_class: 'min-h-[80vh] flex items-end justify-right pb-16 md:pb-24 px-6 md:px-14'
       background:
         image:
           filename: Cover Photo.jpg
