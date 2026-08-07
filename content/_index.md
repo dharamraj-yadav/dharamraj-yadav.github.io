@@ -33,11 +33,15 @@ sections:
         Research on multi-physics and multi-scale modeling of fatigue failure, combining computational mechanics with data-driven methods — with a broader interest in scientific machine learning, uncertainty quantification, and computational physics. Dharamraj Yadav is a PhD Researcher in Computational Mechanics. His research focuses on multi-physics and multi-scale modeling of fatigue failure, combining computational modeling with data-driven methods. [Learn more about Dharamraj →](bio/)
     design:
       columns: '1'
+      spacing:
+        padding: ['6rem', '1.5rem', '1rem', '1.5rem']
   - block: identity-strip
     content:
       username: me
     design:
       columns: '1'
+      spacing:
+        padding: ['0', '1.5rem', '1rem', '1.5rem']
   - block: markdown
     id: home-bio
     content:
@@ -64,6 +68,8 @@ sections:
         <a href="/uploads/resume.pdf" class="cv-download-btn">Download CV →</a>
     design:
       columns: '1'
+      spacing:
+        padding: ['0', '1.5rem', '6rem', '1.5rem']
   - block: resume-skills
     content:
       username: me
