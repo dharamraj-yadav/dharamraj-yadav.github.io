@@ -121,13 +121,6 @@
         </div>
       {{ end }}
 
-      {{ with $education_text }}
-        <div class="mb-8">
-          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">🎓 Education</h2>
-          <div class="prose prose-lg dark:prose-invert max-w-none">{{ . }}</div>
-        </div>
-      {{ end }}
-
       {{ $button_raw := index $content "button" }}
       {{ if and $button_raw (reflect.IsMap $button_raw) }}
         {{ $button_text := "" }}
@@ -135,11 +128,30 @@
         {{ with index $button_raw "text" }}{{ $button_text = printf "%v" . }}{{ end }}
         {{ with index $button_raw "url" }}{{ $button_url = printf "%v" . }}{{ end }}
         {{ if and $button_text $button_url }}
-          <a href="{{ $button_url | relLangURL }}" target="_blank" rel="noopener"
-             class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-            {{ $button_text }}
-          </a>
+          <p class="mb-8"><a href="{{ $button_url | relLangURL }}" target="_blank" rel="noopener">{{ $button_text }}</a></p>
         {{ end }}
+      {{ end }}
+
+      {{ with $education_text }}
+        <div class="mb-8">
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">🎓 Education</h2>
+          <div class="prose prose-lg dark:prose-invert max-w-none">{{ . }}</div>
+        </div>
+      {{ end }}
+
+      {{ $interests_raw := $profile.interests }}
+      {{ $interests := slice }}
+      {{ if reflect.IsSlice $interests_raw }}{{ $interests = $interests_raw }}
+      {{ else if eq (printf "%T" $interests_raw) "string" }}{{ $interests = slice $interests_raw }}{{ end }}
+      {{ if gt (len $interests) 0 }}
+        <div class="mb-8">
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">✨ Research Interests</h2>
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            <ul>
+              {{ range $interests }}<li>{{ . }}</li>{{ end }}
+            </ul>
+          </div>
+        </div>
       {{ end }}
     </div>
   </div>
