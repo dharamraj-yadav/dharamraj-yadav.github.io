@@ -19,35 +19,87 @@
     return stored === "dark" || stored === "light" ? stored : "auto";
   }
 
+  var MOON_SVG =
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+  var SUN_SVG =
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+
+  var LABELS = { auto: "Automatic", light: "Light", dark: "Dark" };
+
   function init() {
     var toggleButton = document.querySelector(".theme-toggle");
     if (!toggleButton) return;
     var container = toggleButton.closest("div");
     if (!container) return;
 
-    var select = document.createElement("select");
-    select.setAttribute("aria-label", "Appearance");
-    select.className =
-      "bg-transparent text-[var(--hb-color-header-fg)] border-none focus:ring-0 cursor-pointer text-sm font-medium";
-
-    [
-      ["auto", "Automatic"],
-      ["light", "Light"],
-      ["dark", "Dark"],
-    ].forEach(function (pair) {
-      var option = document.createElement("option");
-      option.value = pair[0];
-      option.textContent = pair[1];
-      select.appendChild(option);
-    });
-
-    select.value = currentMode();
-    select.addEventListener("change", function () {
-      apply(select.value);
-    });
-
+    container.classList.add("relative");
     container.innerHTML = "";
-    container.appendChild(select);
+
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "theme-toggle mt-1";
+    button.setAttribute("aria-haspopup", "true");
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Appearance");
+    button.title = "Appearance";
+    button.innerHTML = MOON_SVG + SUN_SVG;
+
+    var menu = document.createElement("div");
+    menu.className =
+      "hidden absolute right-0 top-full mt-2 w-36 rounded-md shadow-lg ring-1 ring-gray-900/10 dark:ring-white/10 bg-white dark:bg-gray-800 py-1 z-50 text-sm";
+    menu.setAttribute("role", "menu");
+
+    function render() {
+      var mode = currentMode();
+      menu.innerHTML = "";
+      Object.keys(LABELS).forEach(function (key) {
+        var item = document.createElement("button");
+        item.type = "button";
+        item.setAttribute("role", "menuitemradio");
+        item.setAttribute("aria-checked", key === mode ? "true" : "false");
+        item.className =
+          "flex w-full items-center justify-between px-3 py-1.5 text-left text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" +
+          (key === mode ? " font-semibold text-primary-600 dark:text-primary-400" : "");
+        item.textContent = LABELS[key];
+        if (key === mode) {
+          item.innerHTML += ' <span aria-hidden="true">&#10003;</span>';
+        }
+        item.addEventListener("click", function () {
+          apply(key);
+          render();
+          closeMenu();
+        });
+        menu.appendChild(item);
+      });
+    }
+
+    function openMenu() {
+      menu.classList.remove("hidden");
+      button.setAttribute("aria-expanded", "true");
+    }
+    function closeMenu() {
+      menu.classList.add("hidden");
+      button.setAttribute("aria-expanded", "false");
+    }
+
+    button.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (menu.classList.contains("hidden")) {
+        render();
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
+    document.addEventListener("click", function (e) {
+      if (!container.contains(e.target)) closeMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    container.appendChild(button);
+    container.appendChild(menu);
   }
 
   document.addEventListener("DOMContentLoaded", init);

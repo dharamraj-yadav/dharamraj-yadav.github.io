@@ -7,6 +7,7 @@ type: landing
 
 sections:
   - block: markdown
+    id: hero
     content:
       title: ''
       text: |-
@@ -14,7 +15,7 @@ sections:
 
         PhD Researcher in Computational Mechanics — Multiphysics & Multiscale Modeling of Fatigue Failure
     design:
-      css_class: 'min-h-[70vh] flex items-center justify-center text-center'
+      css_class: 'min-h-[80vh] flex items-end justify-start pb-16 md:pb-24 px-6 md:px-14'
       background:
         image:
           filename: cover.svg
@@ -30,13 +31,14 @@ sections:
     design:
       columns: '1'
   - block: markdown
+    id: bio-teaser
     content:
       title: ''
       subtitle: ''
       text: |-
-        Dharamraj Yadav is a PhD Researcher in Computational Mechanics. His research focuses on multi-physics and multi-scale modeling of fatigue failure.
+        ![Dharamraj Yadav](/media/bio-photo.svg)
 
-        [Learn more about Dharamraj →](bio/)
+        Dharamraj Yadav is a PhD Researcher in Computational Mechanics. His research focuses on multi-physics and multi-scale modeling of fatigue failure, combining computational modeling with data-driven methods. [Learn more about Dharamraj →](bio/)
     design:
       columns: '1'
   - block: collection
@@ -48,8 +50,8 @@ sections:
           - publications
         featured_only: true
     design:
-      view: article-grid
-      columns: 2
+      view: citation
+      layout: title-side
   - block: collection
     content:
       title: Recent Publications
