@@ -1,0 +1,55 @@
+<script>
+(function () {
+  function apply(mode) {
+    if (mode === "auto") {
+      localStorage.removeItem("wc-color-theme");
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      prefersDark ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else if (mode === "dark") {
+      localStorage.setItem("wc-color-theme", "dark");
+      window.hbb.setDarkTheme();
+    } else {
+      localStorage.setItem("wc-color-theme", "light");
+      window.hbb.setLightTheme();
+    }
+  }
+
+  function currentMode() {
+    var stored = localStorage.getItem("wc-color-theme");
+    return stored === "dark" || stored === "light" ? stored : "auto";
+  }
+
+  function init() {
+    var toggleButton = document.querySelector(".theme-toggle");
+    if (!toggleButton) return;
+    var container = toggleButton.closest("div");
+    if (!container) return;
+
+    var select = document.createElement("select");
+    select.setAttribute("aria-label", "Appearance");
+    select.className =
+      "bg-transparent text-[var(--hb-color-header-fg)] border-none focus:ring-0 cursor-pointer text-sm font-medium";
+
+    [
+      ["auto", "Automatic"],
+      ["light", "Light"],
+      ["dark", "Dark"],
+    ].forEach(function (pair) {
+      var option = document.createElement("option");
+      option.value = pair[0];
+      option.textContent = pair[1];
+      select.appendChild(option);
+    });
+
+    select.value = currentMode();
+    select.addEventListener("change", function () {
+      apply(select.value);
+    });
+
+    container.innerHTML = "";
+    container.appendChild(select);
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
